@@ -47,3 +47,37 @@ func New() *Manager {
 		fileManager: filemanager.New(),
 	}
 }
+
+// func downloadFromS3(cmd *cobra.Command, args []string) error {
+// 	s3manager := s3.New()
+// 	bs, err := os.ReadFile("input")
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	splitted := strings.Split(string(bs), ",")
+// 	files := make([]s3.ObjectDownloadInput, len(splitted))
+// 	for _, s := range splitted {
+// 		k := strings.Trim(strings.Replace(s, "'", "", -1), " ")
+// 		files = append(files,
+// 			s3.ObjectDownloadInput{
+// 				Bucket:  "traderepublic-timeline-mqlog",
+// 				Key:     k,
+// 				DstPath: fmt.Sprintf("./output/%s", path.Base(k)),
+// 			},
+// 		)
+// 	}
+
+// 	for _, f := range files {
+// 		fmt.Printf("%+v\n", f)
+// 	}
+// 	s3manager.DownloadFiles(context.Background(), files...)
+// 	return nil
+
+// }
+
+// // MustCli instantiates the CLI with the given entrypoint function passed to it
+// func MustCli(rootCmd *cobra.Command) {
+// 	if err := rootCmd.Execute(); err != nil {
+// 		logger.Fatal().Err(err)
+// 	}
+// }
